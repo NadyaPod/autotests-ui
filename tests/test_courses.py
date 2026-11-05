@@ -1,49 +1,24 @@
-from playwright.sync_api import sync_playwright, expect
+from playwright.sync_api import expect
+from playwright.sync_api import Page
 import pytest
 
 
 @pytest.mark.courses
 @pytest.mark.regression
-def test_empty_courses_list():
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-        context = browser.new_context()
-        page = context.new_page()
+def test_empty_courses_list(chromium_page_with_state: Page) -> None:
+    chromium_page_with_state.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
 
-        page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration")
+    courses_title = chromium_page_with_state.get_by_test_id("courses-list-toolbar-title-text")
+    expect(courses_title).to_be_visible()
+    expect(courses_title).to_have_text("Courses")
 
-        email = page.get_by_test_id("registration-form-email-input").locator("input")
-        email.fill("user.name@gmail.com")
+    block_text = chromium_page_with_state.get_by_test_id("courses-list-empty-view-title-text")
+    expect(block_text).to_be_visible()
+    expect(block_text).to_have_text("There is no results")
 
-        username = page.get_by_test_id("registration-form-username-input").locator("input")
-        username.fill("username")
+    block_icon = chromium_page_with_state.get_by_test_id("courses-list-empty-view-icon")
+    expect(block_icon).to_be_visible()
 
-        password = page.get_by_test_id("registration-form-password-input").locator("input")
-        password.fill("password")
-
-        registration_button = page.get_by_test_id("registration-page-registration-button")
-        registration_button.click()
-
-        context.storage_state(path="browser-state.json")
-
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-        context = browser.new_context(storage_state="browser-state.json")
-        page = context.new_page()
-
-        page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
-
-        courses_title = page.get_by_test_id("courses-list-toolbar-title-text")
-        expect(courses_title).to_be_visible()
-        expect(courses_title).to_have_text("Courses")
-
-        block_text = page.get_by_test_id("courses-list-empty-view-title-text")
-        expect(block_text).to_be_visible()
-        expect(block_text).to_have_text("There is no results")
-
-        block_icon = page.get_by_test_id("courses-list-empty-view-icon")
-        expect(block_icon).to_be_visible()
-
-        block_description = page.get_by_test_id("courses-list-empty-view-description-text")
-        expect(block_description).to_be_visible()
-        expect(block_description).to_have_text("Results from the load test pipeline will be displayed here")
+    block_description = chromium_page_with_state.get_by_test_id("courses-list-empty-view-description-text")
+    expect(block_description).to_be_visible()
+    expect(block_description).to_have_text("Results from the load test pipeline will be displayed here")
