@@ -4,7 +4,7 @@ from pages.base_page import BasePage
 
 
 class RegistrationPage(BasePage):
-    def __init__(self, page: Page):
+    def __init__(self, page: Page) -> None:
         super().__init__(page)
 
         self.registration_form_email_input = page.get_by_test_id('registration-form-email-input').locator('input')
