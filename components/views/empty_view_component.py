@@ -11,7 +11,6 @@ class EmptyViewComponent(BaseComponent):
         self.title = page.get_by_test_id(f'{identifier}-empty-view-title-text')
         self.description = page.get_by_test_id(f'{identifier}-empty-view-description-text')
 
-
     def check_visible(self, title: str, description: str):
         expect(self.icon).to_be_visible()
 

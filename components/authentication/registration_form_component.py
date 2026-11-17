@@ -4,7 +4,7 @@ from components.base_component import BaseComponent
 
 
 class RegistrationFormComponent(BaseComponent):
-    def __init__(self, page):
+    def __init__(self, page: Page) -> None:
         super().__init__(page)
 
         self.email_input = page.get_by_test_id('registration-form-email-input').locator('input')

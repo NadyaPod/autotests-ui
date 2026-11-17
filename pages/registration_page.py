@@ -1,7 +1,8 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 
 from pages.base_page import BasePage
 from components.authentication.registration_form_component import RegistrationFormComponent
+
 
 class RegistrationPage(BasePage):
     def __init__(self, page: Page) -> None:
