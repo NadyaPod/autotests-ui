@@ -12,6 +12,7 @@ from pages.login_page import LoginPage
 def login_page(chromium_page: Page) -> LoginPage:
     return LoginPage(page=chromium_page)
 
+
 @pytest.fixture
 def registration_page(chromium_page: Page) -> RegistrationPage:
     return RegistrationPage(page=chromium_page)

@@ -4,11 +4,11 @@ from components.base_component import BaseComponent
 
 
 class DashboardToolbarViewComponent(BaseComponent):
-    def __init__(self, page: Page):
+    def __init__(self, page: Page) -> None:
         super().__init__(page)
 
         self.title = page.get_by_test_id('dashboard-toolbar-title-text')
 
-    def check_visible(self):
+    def check_visible(self) -> None:
         expect(self.title).to_be_visible()
         expect(self.title).to_have_text("Dashboard")

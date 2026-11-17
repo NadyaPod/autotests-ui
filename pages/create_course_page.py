@@ -5,6 +5,7 @@ from components.views.image_upload_widget_component import ImageUploadWidgetComp
 from pages.base_page import BasePage
 from components.views.empty_view_component import EmptyViewComponent
 
+
 class CreateCoursePage(BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
