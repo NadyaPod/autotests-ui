@@ -10,10 +10,9 @@ class DashboardPage(BasePage):
     def __init__(self, page: Page) -> None:
         super().__init__(page)
 
-        self.toolbar = DashboardToolbarViewComponent(page)
-
         self.navbar = NavbarComponent(page)
         self.sidebar = SidebarComponent(page)
+        self.toolbar = DashboardToolbarViewComponent(page)
 
         self.students_title = page.get_by_test_id('students-widget-title-text')
         self.students_chart = page.get_by_test_id('students-bar-chart')

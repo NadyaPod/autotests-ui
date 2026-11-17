@@ -11,7 +11,6 @@ def test_empty_courses_list(courses_list_page: CoursesListPage) -> None:
 
     courses_list_page.navbar.check_visible("username")
     courses_list_page.sidebar.check_visible()
-
     courses_list_page.toolbar_view.check_visible()
     courses_list_page.check_visible_empty_view()
 
@@ -24,7 +23,7 @@ def test_create_course(courses_list_page: CoursesListPage, create_course_page: C
     create_course_page.check_visible_create_course_title()
     create_course_page.check_disabled_create_course_button()
     create_course_page.image_upload_widget.check_visible(is_image_uploaded=False)
-    create_course_page.check_visible_create_course_form(
+    create_course_page.create_course_form.check_visible(
         title="",
         description="",
         estimated_time="",
@@ -37,7 +36,7 @@ def test_create_course(courses_list_page: CoursesListPage, create_course_page: C
 
     create_course_page.image_upload_widget.upload_preview_image(file="./testdata/files/image.png")
     create_course_page.image_upload_widget.check_visible(is_image_uploaded=True)
-    create_course_page.fill_create_course_form(
+    create_course_page.create_course_form.fill(
         title="Playwright",
         estimated_time="2 weeks",
         description="Playwright",
