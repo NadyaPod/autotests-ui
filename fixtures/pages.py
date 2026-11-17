@@ -5,7 +5,12 @@ from pages.registration_page import RegistrationPage
 from pages.dashboard_page import DashboardPage
 from pages.create_course_page import CreateCoursePage
 from pages.courses_list_page import CoursesListPage
+from pages.login_page import LoginPage
 
+
+@pytest.fixture
+def login_page(chromium_page: Page) -> LoginPage:
+    return LoginPage(page=chromium_page)
 
 @pytest.fixture
 def registration_page(chromium_page: Page) -> RegistrationPage:
