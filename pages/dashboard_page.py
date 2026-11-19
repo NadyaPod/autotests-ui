@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 
 from components.charts.chart_view_component import ChartViewComponent
 from pages.base_page import BasePage
@@ -19,3 +19,5 @@ class DashboardPage(BasePage):
         self.activities_chart_view = ChartViewComponent(page, "activities", "line")
         self.courses_chart_view = ChartViewComponent(page, "courses", "pie")
         self.scores_chart_view = ChartViewComponent(page,"scores", "scatter")
+
+
