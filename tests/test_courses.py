@@ -42,6 +42,7 @@ def test_create_course(courses_list_page: CoursesListPage, create_course_page: C
         max_score="100",
         min_score="10",
     )
+    create_course_page.toolbar_view.check_visible(is_create_course_disabled=False)
     create_course_page.toolbar_view.click_create_course_button()
 
     courses_list_page.toolbar_view.check_visible()
