@@ -4,14 +4,13 @@ from components.base_component import BaseComponent
 
 
 class ChartViewComponent(BaseComponent):
-    def __init__(self, page: Page, identifier: str, chart_type = str) -> None:
+    def __init__(self, page: Page, identifier: str, chart_type: str) -> None:
         super().__init__(page)
 
         self.title = page.get_by_test_id(f'{identifier}-widget-title-text')
         self.chart = page.get_by_test_id(f'{identifier}-{chart_type}-chart')
 
-
     def check_visible(self, title: str) -> None:
         expect(self.title).to_be_visible()
-        expect(self.title).to_have_text(title.capitalize())
+        expect(self.title).to_have_text(title)
         expect(self.chart).to_be_visible()
