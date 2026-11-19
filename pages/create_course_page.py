@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 
 from pages.base_page import BasePage
 from components.courses.create_course_excersise_form_component import CreateCourseExerciseFormComponent
@@ -6,7 +6,7 @@ from components.courses.create_course_form_component import CreateCourseFormComp
 from components.views.image_upload_widget_component import ImageUploadWidgetComponent
 from components.views.empty_view_component import EmptyViewComponent
 from components.courses.create_course_toolbar_view_component import CreateCourseToolbarViewComponent
-from components.courses.create_course_exercises_toolbar_view_component import CreateCourseExerciseToolbarViewComponent
+from components.courses.create_course_exercises_toolbar_view_component import CreateCourseExercisesToolbarViewComponent
 
 
 class CreateCoursePage(BasePage):
@@ -18,9 +18,9 @@ class CreateCoursePage(BasePage):
         self.image_upload_widget = ImageUploadWidgetComponent(page, 'create-course-preview')
         self.exercises_empty_view = EmptyViewComponent(page, 'create-course-exercises')
         self.courses_toolbar = CreateCourseToolbarViewComponent(page)
-        self.exercises_toolbar = CreateCourseExerciseToolbarViewComponent(page)
+        self.exercises_toolbar = CreateCourseExercisesToolbarViewComponent(page)
 
-    def check_visible_exercises_empty_view(self):
+    def check_visible_exercises_empty_view(self) -> None:
         self.exercises_empty_view.check_visible(
             title="There is no exercises",
             description='Click on "Create exercise" button to create new exercise'

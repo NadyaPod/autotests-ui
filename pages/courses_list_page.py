@@ -9,7 +9,7 @@ from components.courses.courses_list_toolbar_view_component import CoursesListTo
 
 
 class CoursesListPage(BasePage):
-    def __init__(self, page: Page):
+    def __init__(self, page: Page) -> None:
         super().__init__(page)
 
         self.sidebar = SidebarComponent(page)
@@ -18,7 +18,7 @@ class CoursesListPage(BasePage):
         self.course_view = CourseViewComponent(page)
         self.toolbar_view = CoursesListToolbarViewComponent(page)
 
-    def check_visible_empty_view(self):
+    def check_visible_empty_view(self) -> None:
         self.empty_view.check_visible(
             title="There is no results",
             description="Results from the load test pipeline will be displayed here",
