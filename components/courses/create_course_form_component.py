@@ -46,7 +46,7 @@ class CreateCourseFormComponent(BaseComponent):
             estimated_time: str,
             description: str,
             max_score: str,
-            min_score: str
+            min_score: str,
     ):
         expect(self.title_input).to_be_visible()
         expect(self.title_input).to_have_value(title)

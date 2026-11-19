@@ -5,7 +5,7 @@ from playwright.sync_api import Page, expect
 from components.base_component import BaseComponent
 
 
-class CoursesListToolbarComponent(BaseComponent):
+class CoursesListToolbarViewComponent(BaseComponent):
     def __init__(self, page: Page) -> None:
         super().__init__(page)
 
