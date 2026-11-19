@@ -14,4 +14,3 @@ class RegistrationPage(BasePage):
 
     def click_registration_button(self) -> None:
         self.registration_form_button.click()
-

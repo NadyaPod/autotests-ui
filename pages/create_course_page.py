@@ -11,7 +11,7 @@ from components.courses.create_course_exercises_toolbar_view_component import Cr
 
 
 class CreateCoursePage(BasePage):
-    def __init__(self, page: Page):
+    def __init__(self, page: Page) -> None:
         super().__init__(page)
 
         self.navbar = NavbarComponent(page)
@@ -27,4 +27,3 @@ class CreateCoursePage(BasePage):
             title="There is no exercises",
             description='Click on "Create exercise" button to create new exercise'
         )
-
