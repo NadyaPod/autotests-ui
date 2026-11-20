@@ -9,14 +9,14 @@ from elements.text import Text
 
 
 class SidebarListItemComponent(BaseComponent):
-    def __init__(self, page: Page, identifier: str):
+    def __init__(self, page: Page, identifier: str) -> None:
         super().__init__(page)
 
         self.icon = Icon(page, f"{identifier}-drawer-list-item-icon", "Sidebar icon")
         self.title = Text(page, f"{identifier}-drawer-list-item-title-text", "Sidebar title")
         self.button = Button(page, f"{identifier}-drawer-list-item-button", "Sidebar button")
 
-    def check_visible(self, title: str):
+    def check_visible(self, title: str) -> None:
         self.icon.check_visible()
 
         self.title.check_visible()
@@ -24,6 +24,7 @@ class SidebarListItemComponent(BaseComponent):
 
         self.button.check_visible()
 
-    def navigate(self, expected_url: Pattern[str]):
+    def navigate(self, expected_url: Pattern[str]) -> None:
         self.button.click()
         self.check_current_url(expected_url)
+

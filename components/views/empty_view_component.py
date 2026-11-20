@@ -13,7 +13,7 @@ class EmptyViewComponent(BaseComponent):
         self.title = Text(page, f"{identifier}-empty-view-title-text", "Empty view title")
         self.description = Text(page, f"{identifier}-empty-view-description-text", "Empty view description")
 
-    def check_visible(self, title: str, description: str):
+    def check_visible(self, title: str, description: str) -> None:
         self.icon.check_visible()
 
         self.title.check_visible()

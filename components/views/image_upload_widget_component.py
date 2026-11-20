@@ -56,8 +56,8 @@ class ImageUploadWidgetComponent(BaseComponent):
                 description='Preview of selected image will be displayed here',
             )
 
-    def click_remove_image_button(self):
+    def click_remove_image_button(self) -> None:
         self.remove_button.click()
 
-    def upload_preview_image(self, file: str):
+    def upload_preview_image(self, file: str) -> None:
         self.upload_input.set_input_files(file)

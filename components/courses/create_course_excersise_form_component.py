@@ -17,10 +17,10 @@ class CreateCourseExerciseFormComponent(BaseComponent):
         self.title_input = Input(page, "create-course-exercise-form-title-{index}-input", "Title")
         self.description_input = Input(page, "create-course-exercise-form-description-{index}-input", "Description")
 
-    def click_delete_button(self, index: int):
+    def click_delete_button(self, index: int) -> None:
         self.delete_exercise_button.click(index=index)
 
-    def check_visible(self, index: int, title: str, description: str):
+    def check_visible(self, index: int, title: str, description: str) -> None:
         self.subtitle.check_visible(index=index)
         self.subtitle.check_have_text(text=f"{index + 1} Exercise", index=index)
 
@@ -30,7 +30,7 @@ class CreateCourseExerciseFormComponent(BaseComponent):
         self.description_input.check_visible(index=index)
         self.description_input.check_have_value(value=description, index=index)
 
-    def fill(self, index: int, title: str, description: str):
+    def fill(self, index: int, title: str, description: str) -> None:
         self.title_input.fill(title, index=index)
         self.title_input.check_have_value(title, index=index)
 
