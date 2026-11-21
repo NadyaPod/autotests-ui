@@ -1,3 +1,5 @@
+import re
+
 from playwright.sync_api import Page
 
 from pages.base_page import BasePage
@@ -18,3 +20,6 @@ class RegistrationPage(BasePage):
 
     def click_registration_button(self) -> None:
         self.registration_form_button.click()
+
+    def click_login_link(self) -> None:
+        self.login_link.click()
