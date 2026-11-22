@@ -9,7 +9,7 @@ class CreateCourseFormComponent(BaseComponent):
     def __init__(self, page: Page) -> None:
         super().__init__(page)
 
-        self.title_input = Input(page,"create-course-form-title-input", "Title input")
+        self.title_input = Input(page, "create-course-form-title-input", "Title input")
         self.estimated_time_input = Input(
             page,
             "create-course-form-estimated-time-input",
@@ -40,7 +40,7 @@ class CreateCourseFormComponent(BaseComponent):
             description: str,
             max_score: str,
             min_score: str,
-    ):
+    ) -> None:
         self.title_input.fill(title)
         self.title_input.check_have_value(value=title)
 
@@ -51,10 +51,10 @@ class CreateCourseFormComponent(BaseComponent):
         self.description_textarea.check_have_value(value=description)
 
         self.max_score_input.fill(max_score)
-        self.max_score_input.check_have_value(max_score)
+        self.max_score_input.check_have_value(value=max_score)
 
         self.min_score_input.fill(min_score)
-        self.min_score_input.check_have_value(min_score)
+        self.min_score_input.check_have_value(value=min_score)
 
     def check_visible(
             self,
@@ -63,7 +63,7 @@ class CreateCourseFormComponent(BaseComponent):
             description: str,
             max_score: str,
             min_score: str,
-    ):
+    ) -> None:
         self.title_input.check_visible()
         self.title_input.check_have_value(value=title)
 
