@@ -2,7 +2,7 @@ from playwright.sync_api import Page
 
 from pages.base_page import BasePage
 from components.navigation.navbar_component import NavbarComponent
-from components.courses.create_course_excersise_form_component import CreateCourseExerciseFormComponent
+from components.courses.create_course_exercise_form_component import CreateCourseExerciseFormComponent
 from components.courses.create_course_form_component import CreateCourseFormComponent
 from components.views.image_upload_widget_component import ImageUploadWidgetComponent
 from components.views.empty_view_component import EmptyViewComponent
