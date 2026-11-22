@@ -11,8 +11,10 @@ class RegistrationPage(BasePage):
         super().__init__(page)
 
         self.registration_form = RegistrationFormComponent(page)
-        self.registration_form_button = Button(page,
-            "registration-page-registration-button", "Registration button",
+        self.registration_form_button = Button(
+            page,
+            "registration-page-registration-button",
+            "Registration button",
         )
         self.login_link = Link(page, 'registration-page-login-link', 'Login')
 
