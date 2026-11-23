@@ -56,7 +56,7 @@ class TestCourses:
         courses_list_page: CoursesListPage,
         create_course_page: CreateCoursePage,
     ) -> None:
-        courses_list_page.visit("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create")
+        create_course_page.visit("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create")
         create_course_page.create_course_form.fill(
             title="Playwright",
             estimated_time="3 weeks",
