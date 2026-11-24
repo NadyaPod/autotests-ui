@@ -19,7 +19,7 @@ from tools.allure.tags import AllureTag
 @allure.parent_suite(AllureEpic.LMS)
 @allure.suite(AllureFeature.AUTHENTICATION)
 @allure.sub_suite(AllureStory.REGISTRATION)
-class TestRegistrationPage:
+class TestRegistration:
     @allure.title("Registration with correct email, username and password")
     @allure.severity(Severity.CRITICAL)
     def test_successful_registration(self, registration_page: RegistrationPage, dashboard_page: DashboardPage) -> None:
