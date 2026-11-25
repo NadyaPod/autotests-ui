@@ -21,7 +21,7 @@ class CreateCourseExercisesToolbarViewComponent(BaseComponent):
             "Create button",
         )
 
-    @allure.step("Check visible create course exercises toolbar view")
+    @allure.step("Check visible 'Exercises' toolbar")
     def check_visible(self) -> None:
         self.title.check_visible()
         self.title.check_have_text('Exercises')
