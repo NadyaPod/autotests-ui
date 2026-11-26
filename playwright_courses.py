@@ -1,11 +1,12 @@
 from playwright.sync_api import sync_playwright, expect
+from tools.routes import AppRoute
 
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
     page = context.new_page()
 
-    page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/registration")
+    page.goto(AppRoute.REGISTRATION)
 
     email = page.get_by_test_id("registration-form-email-input").locator("input")
     email.fill("user.name@gmail.com")
@@ -26,7 +27,7 @@ with sync_playwright() as playwright:
     context = browser.new_context(storage_state="browser-state.json")
     page = context.new_page()
 
-    page.goto("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
+    page.goto(AppRoute.COURSES)
 
     courses_title = page.get_by_test_id("courses-list-toolbar-title-text")
     expect(courses_title).to_be_visible()
