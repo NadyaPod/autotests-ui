@@ -1,9 +1,14 @@
 from playwright.sync_api import sync_playwright, expect
+
+from config import settings
 from tools.routes import AppRoute
+
 
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context()
+    context = browser.new_context(
+        base_url=settings.get_base_url(),
+    )
     page = context.new_page()
 
     page.goto(AppRoute.REGISTRATION)
@@ -24,7 +29,10 @@ with sync_playwright() as playwright:
 
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context(storage_state="browser-state.json")
+    context = browser.new_context(
+        base_url=settings.get_base_url(),
+        storage_state="browser-state.json",
+    )
     page = context.new_page()
 
     page.goto(AppRoute.COURSES)
@@ -42,4 +50,6 @@ with sync_playwright() as playwright:
 
     block_description = page.get_by_test_id("courses-list-empty-view-description-text")
     expect(block_description).to_be_visible()
-    expect(block_description).to_have_text("Results from the load test pipeline will be displayed here")
+    expect(block_description).to_have_text(
+        "Results from the load test pipeline will be displayed here"
+    )

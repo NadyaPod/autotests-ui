@@ -1,9 +1,13 @@
 from playwright.sync_api import sync_playwright, expect
+
+from config import settings
 from tools.routes import AppRoute
+
 
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=False)
-    page = browser.new_page()
+    page = browser.new_page(base_url=settings.get_base_url())
+
     page.goto(AppRoute.REGISTRATION)
 
     registration_button = page.get_by_test_id("registration-page-registration-button")
@@ -19,6 +23,3 @@ with sync_playwright() as playwright:
     password.fill("password")
 
     expect(registration_button).to_be_enabled()
-
-
-

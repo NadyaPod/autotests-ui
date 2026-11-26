@@ -1,9 +1,13 @@
 from playwright.sync_api import sync_playwright, expect
+
+from config import settings
 from tools.routes import AppRoute
+
 
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=False)
-    page = browser.new_page()
+    page = browser.new_page(base_url=settings.get_base_url())
+
     page.goto(AppRoute.REGISTRATION)
 
     email = page.get_by_test_id("registration-form-email-input").locator("input")
