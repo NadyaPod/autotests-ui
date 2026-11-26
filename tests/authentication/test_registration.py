@@ -9,6 +9,7 @@ from tools.allure.features import AllureFeature
 from tools.allure.stories import AllureStory
 from tools.allure.tags import AllureTag
 from tools.routes import AppRoute
+from config import settings
 
 
 @pytest.mark.registration
@@ -25,6 +26,10 @@ class TestRegistration:
     @allure.severity(Severity.CRITICAL)
     def test_successful_registration(self, registration_page: RegistrationPage, dashboard_page: DashboardPage) -> None:
         registration_page.visit(AppRoute.REGISTRATION)
-        registration_page.registration_form.fill(email="user@gmail.com", username="username", password="password")
+        registration_page.registration_form.fill(
+            email=settings.test_user.email,
+            username=settings.test_user.username,
+            password=settings.test_user.password,
+        )
         registration_page.click_registration_button()
         dashboard_page.toolbar.check_visible()
