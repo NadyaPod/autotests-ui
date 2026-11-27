@@ -4,3 +4,6 @@ browser-state.json
 allure-results/
 tracing/
 videos/
+/playwright_courses.py
+/playwright_registration.py
+/playwright_registration_button.py
