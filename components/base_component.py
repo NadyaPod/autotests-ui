@@ -13,7 +13,7 @@ class BaseComponent:
         self.page = page
 
     def check_current_url(self, expected_url: Pattern[str]) -> None:
-        step = f"Checking current url matches pattern: {expected_url.pattern}"
+        step = f'Checking that current url matches pattern "{expected_url.pattern}"'
 
         with allure.step(step):
             logger.info(step)
